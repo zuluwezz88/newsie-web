@@ -12,14 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --paper: #fdf6e3;
-            --ink: #2c241b;
-            --accent: #e0d5c1;
-        }
-
+        :root { --paper: #fdf6e3; --ink: #2c241b; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
+        
         body {
             background-color: var(--paper);
             color: var(--ink);
@@ -28,185 +23,73 @@
             overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY --- */
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 900; }
         
-        .masthead {
-            font-size: 5rem;
-            letter-spacing: -2px;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
 
-        .subhead {
-            text-align: center;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #666;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid var(--ink);
-            padding-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* HEADER */
+        header { text-align: center; margin-bottom: 4rem; }
+        .masthead { font-size: 5rem; letter-spacing: -2px; line-height: 1; margin-bottom: 0.5rem; }
+        .subhead { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #666; border-bottom: 2px solid var(--ink); padding-bottom: 2rem; display: inline-block; width: 100%; max-width: 600px; }
 
-        /* --- LAYOUT --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 4rem;
-            min-height: 60vh;
-        }
-
+        /* HERO */
+        .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; min-height: 60vh; }
         .hero-text { flex: 1; min-width: 300px; }
-        .hero-image { flex: 1; display: flex; justify-content: center; min-width: 300px; }
-
         .headline { font-size: 3rem; line-height: 1.1; margin-bottom: 1.5rem; }
         .pitch { font-size: 1.1rem; margin-bottom: 2rem; color: #444; }
 
-        /* --- BUTTONS --- */
-        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-        
-        .btn {
+        /* WAITLIST FORM */
+        .waitlist-form { margin-bottom: 2rem; display: flex; gap: 10px; }
+        .input-email {
+            padding: 15px;
+            border: 2px solid var(--ink);
+            background: #fff;
+            font-family: 'Courier Prime', monospace;
+            flex: 1;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .btn-submit {
             background-color: var(--ink);
             color: var(--paper);
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.2s, opacity 0.2s;
+            padding: 15px 30px;
             border: 2px solid var(--ink);
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Courier Prime', monospace;
+            transition: 0.2s;
         }
+        .btn-submit:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
-        
-        /* --- PHONE MOCKUP --- */
+        /* PHONE MOCKUP */
+        .hero-image { flex: 1; display: flex; justify-content: center; }
         .phone {
-            width: 300px;
-            height: 600px;
-            background: var(--paper);
-            border: 12px solid var(--ink);
-            border-radius: 40px;
-            position: relative;
-            overflow: hidden;
+            width: 300px; height: 600px; background: var(--paper);
+            border: 12px solid var(--ink); border-radius: 40px;
+            position: relative; overflow: hidden;
             box-shadow: 20px 20px 0px rgba(44, 36, 27, 0.1);
         }
-
-        .phone-screen {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .app-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 20px; 
-        }
-        
+        .phone-screen { padding: 20px; display: flex; flex-direction: column; height: 100%; }
+        .app-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .app-logo-text { font-family: 'Playfair Display'; font-size: 24px; font-weight: 900; }
-        
-        /* Fake Article Card inside Phone */
-        .article-card {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
-        }
-        
-        .article-img {
-            width: 100%;
-            height: 160px;
-            background-color: #ddd;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Placeholder Image logic */
-        .article-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-            filter: sepia(0.5); /* Match App Aesthetic */
-        }
+        .article-card { border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+        .article-img { width: 100%; height: 160px; background-color: #ddd; margin-bottom: 15px; border-radius: 4px; overflow: hidden; }
+        .article-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; filter: sepia(0.5); }
+        .article-headline { font-family: 'Playfair Display'; font-weight: 700; font-size: 22px; line-height: 1.1; margin-bottom: 10px; }
+        .app-pill { width: 140px; height: 40px; background: var(--ink); border-radius: 20px; margin: auto auto 20px auto; display: flex; align-items: center; justify-content: center; color: var(--paper); font-size: 10px; font-weight: bold; letter-spacing: 1px; }
 
-        .article-headline {
-            font-family: 'Playfair Display';
-            font-weight: 700;
-            font-size: 22px;
-            line-height: 1.1;
-            margin-bottom: 10px;
-        }
-        
-        .article-body {
-            font-size: 12px;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        .app-pill { 
-            width: 140px; 
-            height: 40px; 
-            background: var(--ink); 
-            border-radius: 20px; 
-            margin: auto auto 20px auto; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--paper);
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        /* --- FEATURES GRID --- */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 4rem 0;
-            border-top: 2px solid var(--ink);
-            margin-top: 4rem;
-        }
-
-        .feature-card {
-            background: #fff;
-            padding: 2rem;
-            border: 1px solid #ddd;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.05);
-        }
-
-        .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+        /* FEATURES */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 4rem 0; border-top: 2px solid var(--ink); margin-top: 4rem; }
+        .feature-card { background: #fff; padding: 2rem; border: 1px solid #ddd; box-shadow: 5px 5px 0px rgba(0,0,0,0.05); }
         .feature-title { font-weight: bold; margin-bottom: 0.5rem; font-family: 'Playfair Display'; font-size: 1.2rem; }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #ddd;
-            font-size: 0.8rem;
-            color: #888;
-        }
+        footer { text-align: center; padding: 2rem; border-top: 1px solid #ddd; font-size: 0.8rem; color: #888; }
 
         @media (max-width: 768px) {
             .masthead { font-size: 3.5rem; }
-            .headline { font-size: 2.2rem; }
-            .hero { flex-direction: column-reverse; text-align: center; gap: 3rem; }
-            .btn-group { justify-content: center; }
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .waitlist-form { flex-direction: column; }
         }
     </style>
 </head>
@@ -222,26 +105,29 @@
         <main>
             <section class="hero">
                 <div class="hero-text">
-                    <h2 class="headline">A calmer way to<br>read the news.</h2>
+                    <h2 class="headline">Stop Scrolling.<br>Start Reading.</h2>
                     <p class="pitch">
                         No algorithms. No infinite scroll. Just a finite daily edition, curated for clarity and designed for peace of mind.
                     </p>
                     
-                    <div class="btn-group">
-                        <!-- PASTE YOUR EXPO LINK HERE -->
-                        <a href="https://expo.dev/" class="btn">Download App</a>
-                    </div>
+                    <!-- WAITLIST FORM -->
+                    <form action="https://formspree.io/f/mblbnwqg" method="POST" class="waitlist-form">
+                        <input type="email" name="email" class="input-email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn-submit">Join Waitlist</button>
+                    </form>
+
+                    <p style="font-size: 0.8rem;">
+                        Want to test the beta? <a href="https://expo.dev/" style="color: #2c241b; font-weight: bold;">Download via Expo</a>.
+                    </p>
                 </div>
 
                 <div class="hero-image">
+                    <!-- CSS PHONE MOCKUP -->
                     <div class="phone">
                         <div class="phone-screen">
-                            <!-- Fake Status Bar -->
                             <div style="display:flex; justify-content:space-between; font-size: 10px; margin-bottom: 15px; font-weight: bold; color: #2c241b;">
                                 <span>9:15 AM</span><span>100%</span>
                             </div>
-
-                            <!-- App Header -->
                             <div class="app-header">
                                 <span>🏠</span>
                                 <span class="app-logo-text">Newsie</span>
@@ -249,10 +135,8 @@
                             </div>
                             <div style="border-bottom: 2px solid #2c241b; margin-bottom: 20px;"></div>
 
-                            <!-- Article Card Mockup -->
                             <div class="article-card">
                                 <div class="article-img">
-                                    <!-- Placeholder nature image that looks nice with sepia filter -->
                                     <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=600&auto=format&fit=crop" alt="News Image">
                                 </div>
                                 <div style="background: #2c241b; color: #fdf6e3; display: inline-block; padding: 2px 6px; font-size: 8px; font-weight: bold; margin-bottom: 8px;">GLOBAL HEADLINES</div>
@@ -262,8 +146,7 @@
                                 </div>
                             </div>
 
-                            <!-- Floating Pill -->
-                            <div class="app-pill">DAILY BRIEFING</div>
+                            <div class="app-pill">OPEN AUDIO BRIEFING</div>
                         </div>
                     </div>
                 </div>
@@ -271,17 +154,17 @@
 
             <section class="features">
                 <div class="feature-card">
-                    <div class="feature-icon">🗞️</div>
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🗞️</div>
                     <div class="feature-title">Curated Editions</div>
                     <p>We pull the top stories from BBC, Reuters, and TechCrunch. 3 stories per beat. No noise.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎙️</div>
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎙️</div>
                     <div class="feature-title">Audio Briefing</div>
                     <p>Listen to "The Governor" deliver your morning intelligence report while you commute.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🧩</div>
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🧩</div>
                     <div class="feature-title">The Typesetter</div>
                     <p>Unwind with our daily word puzzle. Reconstruct headlines and build your rank.</p>
                 </div>
@@ -294,7 +177,6 @@
     </div>
 
     <script>
-        // Auto-update date
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const today = new Date().toLocaleDateString('en-US', options).toUpperCase();
         document.getElementById('date-display').innerText = today;
